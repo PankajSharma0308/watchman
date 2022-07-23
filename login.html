@@ -13,6 +13,77 @@
     <link rel="stylesheet"
         href="bootstrap.min.css+owl.carousel.min.css+flaticon.css+slicknav.css" />
     <link rel="stylesheet" href="A.style.css.pagespeed.cf.pq55RbNP0z.css">
+    <style>
+*{box-sizing: border-box;}
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position:sticky;
+  float: right;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+    </style>
     <script
         nonce="25dda457-b9f4-40a3-8fb9-b06a4e7689f7">(function (w, d) { !function (a, e, t, r) { a.zarazData = a.zarazData || {}; a.zarazData.executed = []; a.zaraz = { deferred: [] }; a.zaraz.q = []; a.zaraz._f = function (e) { return function () { var t = Array.prototype.slice.call(arguments); a.zaraz.q.push({ m: e, a: t }) } }; for (const e of ["track", "set", "ecommerce", "debug"]) a.zaraz[e] = a.zaraz._f(e); a.zaraz.init = () => { var t = e.getElementsByTagName(r)[0], z = e.createElement(r), n = e.getElementsByTagName("title")[0]; n && (a.zarazData.t = e.getElementsByTagName("title")[0].text); a.zarazData.x = Math.random(); a.zarazData.w = a.screen.width; a.zarazData.h = a.screen.height; a.zarazData.j = a.innerHeight; a.zarazData.e = a.innerWidth; a.zarazData.l = a.location.href; a.zarazData.r = e.referrer; a.zarazData.k = a.screen.colorDepth; a.zarazData.n = e.characterSet; a.zarazData.o = (new Date).getTimezoneOffset(); a.zarazData.q = []; for (; a.zaraz.q.length;) { const e = a.zaraz.q.shift(); a.zarazData.q.push(e) } z.defer = !0; for (const e of [localStorage, sessionStorage]) Object.keys(e || {}).filter((a => a.startsWith("_zaraz_"))).forEach((t => { try { a.zarazData["z_" + t.slice(7)] = JSON.parse(e.getItem(t)) } catch { a.zarazData["z_" + t.slice(7)] = e.getItem(t) } })); z.referrerPolicy = "origin"; z.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))); t.parentNode.insertBefore(z, t) };["complete", "interactive"].includes(e.readyState) ? zaraz.init() : a.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, 0, "script"); })(window, document);</script>
 </head>
@@ -158,7 +229,27 @@
                 </div>
             </div>
         </section>
+        <button class="open-button" onclick="openForm()">Open Form</button>
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+              <h1>Login</h1>
+          
+              <label for="product_name"><b>Product Name</b></label>
+              <input type="text" placeholder="Enter Product Name" name="p_name" required>
 
+              <label for="desc"><b>Description</b></label>
+              <input type="text" placeholder="Enter Description" name="p_desc" required>
+          
+              <label for="img"><b>Price</b></label>
+              <input type="number" placeholder="Enter Price" name="p_price" required>
+              &nbsp;&nbsp; 
+              <label for=""><b>Image</b></label>
+              <input type="file" id="myFile" name="filename" required>
+              &nbsp;&nbsp;&nbsp;
+              <button type="submit" class="btn">Upload</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
     </main>
     <footer>
 
@@ -189,7 +280,7 @@
                             <div class="footer-tittle">
                                 <h4>Quick Links</h4>
                                 <ul>
-                                    <li><a href="#">About</a></li>
+                                    <li>hello</li>
                                     <li><a href="#"> Offers & Discounts</a></li>
                                     <li><a href="#"> Get Coupon</a></li>
                                     <li><a href="#"> Contact Us</a></li>
@@ -294,6 +385,7 @@
     <script>eval(mod_pagespeed_F95M9nW0_A);</script>
 
     <script async src="jss.js"></script>
+    <script src="forms.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
